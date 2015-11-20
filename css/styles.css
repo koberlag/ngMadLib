@@ -1,0 +1,80 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body{
+  	padding:0;
+  	margin: 50px auto;
+  	width:750px;
+  	border: 1px solid black;
+  	font-family: 'Varela Round', sans-serif;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+header{
+	height:140px;
+}
+
+#happy-face-container{
+	height: 140px;
+	float: left;
+	width:30%;
+	text-align: center;
+	border-right:1px solid black;
+	border-bottom:1px solid black;
+}
+
+#happy-face-container img{
+	height: 125px;
+}
+
+#logo-container{
+	float: left;
+	text-align: center;
+	width: 70%;
+	height:140px;
+	border-bottom: 1px solid black;
+}
+
+h1{
+	font-size:3.25em;
+	margin:0;
+}
+
+#logo-container img{
+	padding-top:1em;
+	height:65px;
+}
+
+
+#choices-section, #mad-lib-section{
+	padding: 1em 5em 2em 5em;
+}
+
+#choices-section div{
+	margin-bottom:1em;
+	text-align: center;
+
+}
+
+#mad-lib-section{
+	border-top:1px solid black;
+}
+
+.column-left{ 
+	float: left; 
+	width: 33%; 
+}
+.column-right{ 
+	float: right; 
+	width: 33%; 
+}
+.column-center{ 
+	display: inline-block; 
+	width: 33%; 
+}

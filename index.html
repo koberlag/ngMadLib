@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>ngMadLibs</title>
+	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'><link rel="stylesheet" href="css/styles.css">
+	<script src="angular/angular.min.js"></script>
+
+</head>
+<body>
+	<header>
+		<div id="happy-face-container">
+			<img src="images/mad-lib-happy-face.png" alt="Happy Face">
+		</div>
+		<div id="logo-container" >
+			<img src="images/ng-mad-libs-logo.png" alt="ng Mad Libs">
+			<h1>Automate This!</h1>
+		</div>
+	</header>
+	<section id="choices-section">
+		<h2>Provide the following words:</h2>
+		<div class="column-left">
+			<input class="mad-lib-input" type="text" name="male_name" placeholder="Male name"
+			ng-model="maleName"></input>	
+		</div>
+		<div class="column-center">
+			<input class="mad-lib-input" type="text" name="dirty_task" placeholder="Dirty task"
+			ng-model="dirtyTask"></input>
+		</div>
+		<div class="column-right">
+			<input class="mad-lib-input" type="text" name="obnoxious_celebrity" placeholder="Obnoxious celebrity"
+			ng-model="obnoxiousCelebrity"></input>
+		</div>
+		<div class="column-left">
+			<input class="mad-lib-input" type="text" name="job_title" placeholder="Job title"
+			ng-model="jobTitle"></input>
+		</div>
+		<div class="column-center">
+			<input class="mad-lib-input" type="text" name="celebrity" placeholder="Celebrity"
+			ng-model="celebrity"></input>
+		</div>
+		<div class="column-right">
+			<input class="mad-lib-input" type="text" name="huge_number" placeholder="Huge number"
+			ng-model="hugeNumber"></input>
+		</div>
+		<div class="column-left">
+			<input class="mad-lib-input" type="text" name="tedious_task" placeholder="Tedious task"
+			ng-model="tediousTask"></input>
+		</div>
+		<div class="column-center">
+			<input class="mad-lib-input" type="text" name="useless_skill" placeholder="Useless skill"
+			ng-model="uselessSkill"></input>
+		</div>
+		<div class="column-right">
+			<input class="mad-lib-input" type="text" name="adjective" placeholder="Adjective"
+			ng-model="adjective"></input>
+		</div>
+	</section>
+	<section id="mad-lib-section">
+		<p>
+			{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{celebrity}} who told him to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead. 
+	 
+			What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster. 
+		</p>
+	</section>
+</body>
+</html>
