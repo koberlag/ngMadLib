@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
 	<title>ngMadLibs</title>
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'><link rel="stylesheet" href="css/styles.css">
 	<script src="angular/angular.min.js"></script>
+	<script src="app.js"></script>
 
 </head>
-<body>
+<body ng-controller="MyCtrl">
 	<header>
 		<div id="happy-face-container">
 			<img src="images/mad-lib-happy-face.png" alt="Happy Face">
@@ -18,10 +19,13 @@
 		</div>
 	</header>
 	<section id="choices-section">
+		<h2>Select a gender</h2>
+		<input ng-model="gender" type="radio" name="gender" value="male">Male</input>
+		<input ng-model="gender" type="radio" name="gender" value="female">Female</input>
 		<h2>Provide the following words:</h2>
 		<div class="column-left">
-			<input class="mad-lib-input" type="text" name="male_name" placeholder="Male name"
-			ng-model="maleName"></input>	
+			<input class="mad-lib-input" type="text" name="person_name" placeholder="person name"
+			ng-model="personName"></input>	
 		</div>
 		<div class="column-center">
 			<input class="mad-lib-input" type="text" name="dirty_task" placeholder="Dirty task"
@@ -58,9 +62,9 @@
 	</section>
 	<section id="mad-lib-section">
 		<p>
-			{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{celebrity}} who told him to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead. 
+			{{ personName }} was a {{ jobTitle }} who loved technology. Although {{ nominativePronoun }} loved parts of {{ possessivePronoun }} job, {{ nominativePronoun }} absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ personName }} met with {{possessivePronoun}} life mentor {{celebrity}} who told {{objectivePronoun}} to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so {{nominativePronoun}} studied programming instead. 
 	 
-			What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster. 
+			What a great decision! With {{ possessivePronoun }} new skills, {{ personName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster. 
 		</p>
 	</section>
 </body>
