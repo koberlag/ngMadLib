@@ -18,54 +18,85 @@
 			<h1>Automate This!</h1>
 		</div>
 	</header>
-	<section id="choices-section">
+	
+	<section id="choices-section" ng-hide="data.showMadLib">
+		<form name="choicesForm" novalidate ng-submit="choicesForm.$valid && submit()" >
+		<p class="error" ng-if="choicesForm.$submitted">All fields are required</p>
 		<h2>Select a gender</h2>
-		<input ng-model="gender" type="radio" name="gender" value="male">Male</input>
-		<input ng-model="gender" type="radio" name="gender" value="female">Female</input>
+		<input type="radio" name="gender" value="male"
+			ng-model="data.gender" 
+			ng-required="true">Male</input>
+		<input type="radio" name="gender" value="female"
+			ng-model="data.gender">Female</input>
 		<h2>Provide the following words:</h2>
-		<div class="column-left">
-			<input class="mad-lib-input" type="text" name="person_name" placeholder="person name"
-			ng-model="personName"></input>	
+
+		<div class="choices-container">
+			<div class="column-left">
+				<input class="mad-lib-input" type="text" name="person_name" placeholder="person name"
+				ng-model="data.personName"
+				ng-required="true"></input>
+			</div>
+
+			<div class="column-center">
+				<input class="mad-lib-input" type="text" name="dirty_task" placeholder="Dirty task"
+				ng-model="data.dirtyTask"
+				ng-required="true"></input>
+			</div>
+
+			<div class="column-right">
+				<input class="mad-lib-input" type="text" name="obnoxious_celebrity" placeholder="Obnoxious celebrity"
+				ng-model="data.obnoxiousCelebrity"
+				ng-required="true"></input>
+			</div>
+			<div class="column-left">
+				<input class="mad-lib-input" type="text" name="job_title" placeholder="Job title"
+				ng-model="data.jobTitle"
+				ng-required="true"></input>
+			</div>
+			<div class="column-center">
+				<input class="mad-lib-input" type="text" name="celebrity" placeholder="Celebrity"
+				ng-model="data.celebrity"
+				ng-required="true"></input>
+			</div>
+			<div class="column-right">
+				<input class="mad-lib-input" type="number" name="huge_number" placeholder="Huge number"
+				ng-model="data.hugeNumber"
+				ng-required="true"></input>
+			</div>
+			<div class="column-left">
+				<input class="mad-lib-input" type="text" name="tedious_task" placeholder="Tedious task"
+				ng-model="data.tediousTask"
+				ng-required="true"></input>
+			</div>
+			<div class="column-center">
+				<input class="mad-lib-input" type="text" name="useless_skill" placeholder="Useless skill"
+				ng-model="data.uselessSkill"
+				ng-required="true"></input>
+			</div>
+			<div class="column-right">
+				<input class="mad-lib-input" type="text" name="adjective" placeholder="Adjective"
+				ng-model="data.adjective"
+				ng-required="true"></input>
+			</div>
 		</div>
-		<div class="column-center">
-			<input class="mad-lib-input" type="text" name="dirty_task" placeholder="Dirty task"
-			ng-model="dirtyTask"></input>
+		<hr>
+		<div class="btn-container">
+			<button class="btn" type="submit">Generate My Mad Lib</button>
 		</div>
-		<div class="column-right">
-			<input class="mad-lib-input" type="text" name="obnoxious_celebrity" placeholder="Obnoxious celebrity"
-			ng-model="obnoxiousCelebrity"></input>
-		</div>
-		<div class="column-left">
-			<input class="mad-lib-input" type="text" name="job_title" placeholder="Job title"
-			ng-model="jobTitle"></input>
-		</div>
-		<div class="column-center">
-			<input class="mad-lib-input" type="text" name="celebrity" placeholder="Celebrity"
-			ng-model="celebrity"></input>
-		</div>
-		<div class="column-right">
-			<input class="mad-lib-input" type="text" name="huge_number" placeholder="Huge number"
-			ng-model="hugeNumber"></input>
-		</div>
-		<div class="column-left">
-			<input class="mad-lib-input" type="text" name="tedious_task" placeholder="Tedious task"
-			ng-model="tediousTask"></input>
-		</div>
-		<div class="column-center">
-			<input class="mad-lib-input" type="text" name="useless_skill" placeholder="Useless skill"
-			ng-model="uselessSkill"></input>
-		</div>
-		<div class="column-right">
-			<input class="mad-lib-input" type="text" name="adjective" placeholder="Adjective"
-			ng-model="adjective"></input>
-		</div>
+	</form>
 	</section>
-	<section id="mad-lib-section">
-		<p>
-			{{ personName }} was a {{ jobTitle }} who loved technology. Although {{ nominativePronoun }} loved parts of {{ possessivePronoun }} job, {{ nominativePronoun }} absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ personName }} met with {{possessivePronoun}} life mentor {{celebrity}} who told {{objectivePronoun}} to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so {{nominativePronoun}} studied programming instead. 
-	 
-			What a great decision! With {{ possessivePronoun }} new skills, {{ personName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster. 
-		</p>
+	
+	<section ng-show="data.showMadLib" id="mad-lib-section">
+		<form name="madLibForm" ng-submit="reset()">
+			<p>
+				{{ data.personName }} was a {{ data.jobTitle }} who loved technology. Although {{ data.nominativePronoun }} loved parts of {{ data.possessivePronoun }} job, {{ data.nominativePronoun }} absolutely hated {{ data.tediousTask }} and {{ data.dirtyTask }}. So, {{ data.personName }} met with {{data.possessivePronoun}} life mentor {{data.celebrity}} who told {{data.objectivePronoun}} to learn how to {{ data.uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ data.uselessSkill }} so {{data.nominativePronoun}} studied programming instead. 
+		 
+				What a great decision! With {{ data.possessivePronoun }} new skills, {{ data.personName }} built a(n) {{ data.adjective }} robot named {{ data.obnoxiousCelebrity }} that not only loved {{ data.dirtyTask }} but did it {{ data.hugeNumber }} times faster. 
+			</p>
+			<div class="btn-container">
+				<button class="btn" type="submit">Start Over</button>
+			</div>
+		</form>
 	</section>
 </body>
 </html>
