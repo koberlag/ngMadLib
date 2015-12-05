@@ -5,8 +5,8 @@
 	<title>ngMadLibs</title>
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'><link rel="stylesheet" href="css/styles.css">
 	<script src="angular/angular.min.js"></script>
+	<script src="angular/angular-animate.min.js"></script>
 	<script src="app.js"></script>
-
 </head>
 <body ng-controller="MyCtrl">
 	<header>
@@ -18,10 +18,10 @@
 			<h1>Automate This!</h1>
 		</div>
 	</header>
-	
-	<section id="choices-section" ng-hide="data.showMadLib">
+	<div class="test_wrap">
+	<section class="animate-hide {{ input }}" id="choices-section" >
 		<form name="choicesForm" novalidate ng-submit="choicesForm.$valid && submit()" >
-		<p class="error" ng-if="choicesForm.$submitted">All fields are required</p>
+		<p class="error" ng-if="choicesForm.$submitted && choicesForm.$invalid">All fields are required</p>
 		<h2>Select a gender</h2>
 		<input type="radio" name="gender" value="male"
 			ng-model="data.gender" 
@@ -86,7 +86,7 @@
 	</form>
 	</section>
 	
-	<section ng-show="data.showMadLib" id="mad-lib-section">
+	<section class="animate-hide {{ text }}" id="mad-lib-section">
 		<form name="madLibForm" ng-submit="reset()">
 			<p>
 				{{ data.personName }} was a {{ data.jobTitle }} who loved technology. Although {{ data.nominativePronoun }} loved parts of {{ data.possessivePronoun }} job, {{ data.nominativePronoun }} absolutely hated {{ data.tediousTask }} and {{ data.dirtyTask }}. So, {{ data.personName }} met with {{data.possessivePronoun}} life mentor {{data.celebrity}} who told {{data.objectivePronoun}} to learn how to {{ data.uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ data.uselessSkill }} so {{data.nominativePronoun}} studied programming instead. 
@@ -98,5 +98,6 @@
 			</div>
 		</form>
 	</section>
+</div><!-- .test_wrap - -->
 </body>
 </html>

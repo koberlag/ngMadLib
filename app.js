@@ -1,5 +1,8 @@
-angular.module('myApp',[])
+angular.module('myApp',['ngAnimate'])
 .controller('MyCtrl', ['$scope', function($scope){
+
+	$scope.text = 'text_hide';
+	$scope.input = 'input_show';
 
 	$scope.data = {
 		personName : '',
@@ -15,11 +18,10 @@ angular.module('myApp',[])
 		possessivePronoun : '',
 		objectivePronoun : '',
 		gender : '',
-		showMadLib : false
+		showMadLib : true
 	};
 
-	$scope.origChoices = angular.copy($scope.data);
-
+	
 	$scope.$watch('data.gender', function(gender) {
 		if(gender == 'male')
 		{
@@ -36,11 +38,15 @@ angular.module('myApp',[])
 	});
 
 	$scope.submit = function(){
+		$scope.text = 'text_show';
+		$scope.input = 'input_hide';
 		$scope.data.showMadLib = true;
 	};
 
 	$scope.reset = function(){
-		$scope.data = angular.copy($scope.origChoices);
+		$scope.text = 'text_hide';
+		$scope.input = 'input_show';
+		$scope.data = '';
 		$scope.choicesForm.$setPristine();
 		$scope.choicesForm.$setUntouched();
 	};
