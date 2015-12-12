@@ -1,26 +1,26 @@
 angular.module('myApp',['ngAnimate'])
 .controller('MyCtrl', ['$scope', function($scope){
-
-	$scope.text = 'text_hide';
-	$scope.input = 'input_show';
-
-	$scope.data = {
-		personName : '',
-		dirtyTask : '',
-		obnoxiousCelebrity : '',
-		jobTitle : '',
-		celebrity : '',
-		hugeNumber : '',
-		tediousTask : '',
-		uselessSkill : '',
-		adjective : '',
-		nominativePronoun : '',
-		possessivePronoun : '',
-		objectivePronoun : '',
-		gender : '',
-		showMadLib : true
+	$scope.initializeMadLib = function(){
+		$scope.text = 'text_hide';
+		$scope.input = 'input_show';
+		$scope.data = {
+			personName : '',
+			dirtyTask : '',
+			obnoxiousCelebrity : '',
+			jobTitle : '',
+			celebrity : '',
+			hugeNumber : '',
+			tediousTask : '',
+			uselessSkill : '',
+			adjective : '',
+			nominativePronoun : '',
+			possessivePronoun : '',
+			objectivePronoun : '',
+			gender : '',
+			showMadLib : true
+		};
 	};
-
+	$scope.initializeMadLib();
 	
 	$scope.$watch('data.gender', function(gender) {
 		if(gender == 'male')
@@ -44,9 +44,7 @@ angular.module('myApp',['ngAnimate'])
 	};
 
 	$scope.reset = function(){
-		$scope.text = 'text_hide';
-		$scope.input = 'input_show';
-		$scope.data = '';
+		$scope.initializeMadLib();
 		$scope.choicesForm.$setPristine();
 		$scope.choicesForm.$setUntouched();
 	};
